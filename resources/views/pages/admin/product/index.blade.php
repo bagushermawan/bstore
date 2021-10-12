@@ -54,6 +54,7 @@ Product
         ajax: {
             url: '{!! url()->current() !!}',
         },
+        lengthMenu: [3, 5, 10, 20],
         columns: [
             {data: 'id',name: 'id'},
             {data: 'name',name: 'name'},

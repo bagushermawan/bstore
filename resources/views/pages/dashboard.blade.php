@@ -59,7 +59,7 @@ Store Dashboard
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-1">
-                                    <img src="/public/images/dashboard-icon-product-1.png" alt="" />
+                                    <img src="/images/dashboard-icon-product-1.png" alt="" />
                                 </div>
                                 <div class="col-md-4">
                                     Shirup Marzzan
@@ -71,7 +71,7 @@ Store Dashboard
                                     12 Januari, 2020
                                 </div>
                                 <div class="col-md-1 d-none d-md-block">
-                                    <img src="/public/images/dashboard-arrow-right.svg" alt="" />
+                                    <img src="/images/dashboard-arrow-right.svg" alt="" />
                                 </div>
                             </div>
                         </div>
@@ -80,7 +80,7 @@ Store Dashboard
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-1">
-                                    <img src="/public/images/dashboard-icon-product-2.png" alt="" />
+                                    <img src="/images/dashboard-icon-product-2.png" alt="" />
                                 </div>
                                 <div class="col-md-4">
                                     LeBrone X
@@ -92,7 +92,7 @@ Store Dashboard
                                     11 January, 2020
                                 </div>
                                 <div class="col-md-1 d-none d-md-block">
-                                    <img src="/public/images/dashboard-arrow-right.svg" alt="" />
+                                    <img src="/images/dashboard-arrow-right.svg" alt="" />
                                 </div>
                             </div>
                         </div>
@@ -101,7 +101,7 @@ Store Dashboard
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-1">
-                                    <img src="/public/images/dashboard-icon-product-3.png" alt="" />
+                                    <img src="/images/dashboard-icon-product-3.png" alt="" />
                                 </div>
                                 <div class="col-md-4">
                                     Soffa Lembutte
@@ -113,7 +113,7 @@ Store Dashboard
                                     11 January, 2020
                                 </div>
                                 <div class="col-md-1 d-none d-md-block">
-                                    <img src="/public/images/dashboard-arrow-right.svg" alt="" />
+                                    <img src="/images/dashboard-arrow-right.svg" alt="" />
                                 </div>
                             </div>
                         </div>
