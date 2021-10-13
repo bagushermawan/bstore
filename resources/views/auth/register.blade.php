@@ -12,20 +12,43 @@
                         Memulai untuk jual beli <br />
                         dengan cara terbaru
                     </h2>
-                    <form class="mt-3">
+                    <form class="mt-3" method="POST" action="{{ route('register') }}">
+                        @csrf
                         <div class="form-group">
                             <label>Full Name</label>
-                            <input type="text" class="form-control is-valid" aria-describedby="nameHelp" v-model="name"
-                                autofocus />
+                            <input id="name" type="text" v-model="name" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                         </div>
                         <div class="form-group">
                             <label>Email</label>
-                            <input type="email" class="form-control is-invalid" aria-describedby="emailHelp"
-                                v-model="email" />
+                            <input id="email" type="email" v-model="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                         </div>
                         <div class="form-group">
                             <label>Password</label>
-                            <input type="password" class="form-control" />
+                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                        </div>
+                        <div class="form-group">
+                            <label>Confirm Password</label>
+                            <input id="password-confirm" type="password" class="form-control @error('password_confirmation') is-invalid @enderror" name="password_confirmation" required autocomplete="new-password">
+                                @error('password_confirmation')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                         </div>
                         <div class="form-group">
                             <label>Store</label>
@@ -45,20 +68,28 @@
                         </div>
                         <div class="form-group" v-if="is_store_open">
                             <label>Nama Toko</label>
-                            <input type="text" class="form-control" aria-describedby="storeHelp" />
-                        </div>
+                            <input type="text" v-model="store_name" id="store_name" class="form-control @error('password_confirm') is-invalid @enderror" name="store_name" required autocomplete autofocus>
+                            @error('store_name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                        </div> 
                         <div class="form-group" v-if="is_store_open">
                             <label>Kategori</label>
-                            <select name="category" class="form-control">
+                            <select name="categories_id" class="form-control">
                                 <option value="" disabled>Select Category</option>
+                                @foreach ($categories as $category)
+                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                @endforeach
                             </select>
                         </div>
                         <button type="submit" class="btn btn-success btn-block mt-4">
                             Sign Up Now
                         </button>
-                        <button type="submit" class="btn btn-signup btn-block mt-2">
+                        <a href="{{ route('login') }}" class="btn btn-signup btn-block mt-2">
                             Back to Sign In
-                        </button>
+                        </a>
                     </form>
                 </div>
             </div>
@@ -142,7 +173,7 @@
 @endsection
 
 @push('addon-script')
-    <script src="/public/vendor/vue/vue.js"></script>
+    <script src="/vendor/vue/vue.js"></script>
     <script src="https://unpkg.com/vue-toasted"></script>
     <script>
       Vue.use(Toasted);
@@ -161,8 +192,8 @@
           );
         },
         data: {
-          name: "Angga Hazza Sett",
-          email: "kamujagoan@bwa.id",
+          name: "Bagus Hermawan",
+          email: "awokwok@wok.wok",
           password: "",
           is_store_open: true,
           store_name: "",
