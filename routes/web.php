@@ -20,6 +20,10 @@ Route::get('/details/{id}', 'DetailController@index')->name('detail');
 Route::post('/details/{id}', 'DetailController@add')->name('detail-add');
 Route::get('/cart', 'CartController@index')->name('cart');
 Route::delete('/cart/{id}', 'CartController@delete')->name('cart-delete');
+
+Route::post('/checkout', 'CheckoutController@process')->name('checkout');
+Route::post('/checkout/callback', 'CheckoutController@callback')->name('midtrans-callback');
+
 Route::get('/success', 'CartController@success')->name('success');
 
 Route::get('/register/success', 'Auth\RegisterController@success')->name('register-success');

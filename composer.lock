@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "27b378d63cfe2f684c4627243ca22203",
+    "content-hash": "a0d272256a6d190a656e8a0c836cb40c",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -179,12 +179,12 @@
             "version": "v1.4.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/clue/php-stream-filter.git",
+                "url": "https://github.com/clue/stream-filter.git",
                 "reference": "5a58cc30a8bd6a4eb8f856adf61dd3e013f53f71"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/clue/php-stream-filter/zipball/5a58cc30a8bd6a4eb8f856adf61dd3e013f53f71",
+                "url": "https://api.github.com/repos/clue/stream-filter/zipball/5a58cc30a8bd6a4eb8f856adf61dd3e013f53f71",
                 "reference": "5a58cc30a8bd6a4eb8f856adf61dd3e013f53f71",
                 "shasum": ""
             },
@@ -1657,6 +1657,57 @@
                 "storage"
             ],
             "time": "2020-05-18T15:13:39+00:00"
+        },
+        {
+            "name": "midtrans/midtrans-php",
+            "version": "2.5.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Midtrans/midtrans-php.git",
+                "reference": "a1ad0c824449ca8c68c4cf11b3417ad518311d2b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Midtrans/midtrans-php/zipball/a1ad0c824449ca8c68c4cf11b3417ad518311d2b",
+                "reference": "a1ad0c824449ca8c68c4cf11b3417ad518311d2b",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "php": ">=5.4"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "5.7.*",
+                "psy/psysh": "0.4.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Midtrans\\": "Midtrans/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andri Setiawan",
+                    "email": "andri.setiawan@veritrans.co.id"
+                },
+                {
+                    "name": "Alvin Litani",
+                    "email": "alvin.litani@veritrans.co.id"
+                },
+                {
+                    "name": "Ismail Faruqi",
+                    "email": "ismail.faruqi@veritrans.co.id"
+                }
+            ],
+            "description": "PHP Wrapper for Midtrans Payment API.",
+            "homepage": "https://midtrans.com",
+            "time": "2021-08-23T08:52:05+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -7380,6 +7431,5 @@
     "platform": {
         "php": "^7.2.5"
     },
-    "platform-dev": [],
-    "plugin-api-version": "2.1.0"
+    "platform-dev": []
 }
