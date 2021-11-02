@@ -24,14 +24,15 @@
                     <img src="/images/dokterpost.png" alt="logo" class="my-4" />
                 </div>
                 <div class="list-group list-group-flush">
-                    <a href="/dashboard.html" class="list-group-item list-group-item-action active">Dashboard</a>
-                    <a href="/dashboard-products.html" class="list-group-item list-group-item-action">My Products</a>
-                    <a href="/dashboard-transactions.html"
-                        class="list-group-item list-group-item-action">Transactions</a>
-                    <a href="/dashboard-settings.html" class="list-group-item list-group-item-action">Store Settings</a>
-                    <a href="/dashboard-account.html" class="list-group-item list-group-item-action">My Account</a>
+                    <a href="{{ route('dashboard') }}" class="list-group-item list-group-item-action {{ (request()->is('dashboard')) ? 'active' : '' }}">Dashboard</a>
+                    <a href="{{ route('dashboard-product') }}" class="list-group-item list-group-item-action {{ (request()->is('dashboard/products*')) ? 'active' : '' }}">My Products</a>
+                    <a href="{{ route('dashboard-transactions') }}" class="list-group-item list-group-item-action {{ (request()->is('dashboard/transactions*')) ? 'active' : '' }}">Transactions</a>
+                    <a href="{{ route('dashboard-settings-store') }}" class="list-group-item list-group-item-action {{ (request()->is('dashboard/settings*')) ? 'active' : '' }}">Store Settings</a>
+                    <a href="{{ route('dashboard-settings-account') }}" class="list-group-item list-group-item-action {{ (request()->is('dashboard/accounts')) ? 'active' : '' }}">My Account</a>
+                    <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();" class="list-group-item list-group-item-action {{ (request()->is('dashboard/accounts')) ? 'active' : '' }}">Sign Out</a>
                 </div>
             </div>
+            
             <!-- /#sidebar-wrapper -->
 
             <!-- Page Content -->
@@ -54,18 +55,29 @@
                                     aria-haspopup="true" aria-expanded="false">
                                     <img src="/images/icon-user.png" alt=""
                                         class="rounded-circle mr-2 profile-picture" />
-                                    Hi, Angga
+                                    Hi, {{ Auth::user()->name }}
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="/index.html">Back to Store</a>
-                                    <a class="dropdown-item" href="/dashboard-account.html">Settings</a>
+                                    <a href="{{ route('dashboard') }}" class="dropdown-item" >Dashboard</a>
+                                    <a href="{{ route('dashboard-settings-account') }}" class="dropdown-item" >Settings</a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="/">Logout</a>
+                                    <a  href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();" class="dropdown-item">Logout</a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
                                 </div>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link d-inline-block mt-2" href="#">
+                                <a href="{{ route('cart') }}" class="nav-link d-inline-block mt-2">
+                                @php
+                                    $carts = \App\Cart::where('users_id', Auth::user()->id)->count();
+                                @endphp
+                                @if ($carts > 0)
+                                    <img src="/images/icon-cart-filled.svg" alt=""/>
+                                    <div class="card-badge">{{ $carts }}</div>
+                                @else
                                     <img src="/images/icon-cart-empty.svg" alt="" />
+                                @endif
                                 </a>
                             </li>
                         </ul>
@@ -73,11 +85,11 @@
                         <ul class="navbar-nav d-block d-lg-none mt-3">
                             <li class="nav-item">
                                 <a class="nav-link" href="#">
-                                    Hi, Angga
+                                    Hi, {{ Auth::user()->name }}
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link d-inline-block" href="#">
+                                <a href="{{ route('cart') }}" class="nav-link d-inline-block">
                                     Cart
                                 </a>
                             </li>
