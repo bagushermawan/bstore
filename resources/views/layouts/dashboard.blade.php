@@ -28,7 +28,7 @@
                     <a href="{{ route('dashboard-product') }}" class="list-group-item list-group-item-action {{ (request()->is('dashboard/products*')) ? 'active' : '' }}">My Products</a>
                     <a href="{{ route('dashboard-transactions') }}" class="list-group-item list-group-item-action {{ (request()->is('dashboard/transactions*')) ? 'active' : '' }}">Transactions</a>
                     <a href="{{ route('dashboard-settings-store') }}" class="list-group-item list-group-item-action {{ (request()->is('dashboard/settings*')) ? 'active' : '' }}">Store Settings</a>
-                    <a href="{{ route('dashboard-settings-account') }}" class="list-group-item list-group-item-action {{ (request()->is('dashboard/accounts')) ? 'active' : '' }}">My Account</a>
+                    <a href="{{ route('dashboard-settings-account') }}" class="list-group-item list-group-item-action {{ (request()->is('dashboard/account')) ? 'active' : '' }}">My Account</a>
                     <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();" class="list-group-item list-group-item-action {{ (request()->is('dashboard/accounts')) ? 'active' : '' }}">Sign Out</a>
                 </div>
             </div>
